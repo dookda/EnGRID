@@ -1,4 +1,4 @@
-# enGRID
+# EnGRID
 โจทย์: เรียกข้อมูลผู้ป่วย COVID-19 มาแสดงผลในรูปแบบตาราง และ export เป็น .xlsx 
 1. install vscode จาก https://code.visualstudio.com/
 2. เข้าไปดู API ใน https://covid19.ddc.moph.go.th/en/api
