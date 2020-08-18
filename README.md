@@ -31,6 +31,7 @@ hello = () => {
 }
 ```
 ที่มา https://www.w3schools.com/js/js_arrow_function.asp
+
 การใช้ fetch สำหรับเรียก api 
 ```js
 fetch('http://example.com/movies.json')
@@ -53,6 +54,7 @@ function myFunction() {
 }
 ```
 ที่มา https://www.w3schools.com/jsref/met_node_appendchild.asp
+
 การใช้งาน library TableToExcel
 ```js
 //เพิ่ม <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
