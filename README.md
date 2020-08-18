@@ -1,7 +1,7 @@
 # enGRID
-enGRID workshop
-1. install vscode
-2. เข้าไปดู API: https://covid19.ddc.moph.go.th/en/api
+โจทย์: เรียกข้อมูลผู้ป่วย COVID-19 มาแสดงผลในรูปแบบตาราง และ export เป็น .xlsx 
+1. install vscode จาก https://code.visualstudio.com/
+2. เข้าไปดู API ใน https://covid19.ddc.moph.go.th/en/api
 3. ตาราง html
 ```html
 <table id="table">
@@ -38,13 +38,15 @@ fetch('http://example.com/movies.json')
   .then(response => response.json())
   .then(data => console.log(data));
 ```
-การใช้งาน map กับข้อมูล array
+ที่มา https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+6. การใช้งาน map กับข้อมูล array
 ```js
 const map1 = array1.map(x => x * 2);
 ```
 ที่มา https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
-6. การ append element
+7. การ append element
 ```js
 function myFunction() {
   var node = document.createElement("LI");
@@ -55,7 +57,7 @@ function myFunction() {
 ```
 ที่มา https://www.w3schools.com/jsref/met_node_appendchild.asp
 
-7. การใช้งาน library TableToExcel
+8. การใช้งาน library TableToExcel
 ```js
 //เพิ่ม <script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
 var tab = document.getElementsByTagName("table");
