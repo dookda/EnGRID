@@ -70,56 +70,110 @@ var tab = document.getElementsByTagName("table");
 ```
 ที่มา https://github.com/linways/table-to-excel
 
-โค้ดตัวอย่าง
+ตัวอย่างโค้ดที่สำเร็จ
 ```html
-  <table id="table">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 case</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+    <style>
+        table {
+            font-family: Prompt, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            font-size: 18px;
+            color: white;
+            background-color: orangered;
+            text-align: center !important;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btnExport" onclick="exportXls()">export to excel</button>
+    <p></p>
+    <table id="covid-case">
         <tr>
             <th>ConfirmDate</th>
-            <th>No</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>District</th>
-            <th>Province</th>
+            <th>Case No.</th>
+            <th>เพศ</th>
+            <th>อำเภอ</th>
+            <th>จังหวัด</th>
         </tr>
+        <!-- <tr>
+            <td>xx</td>
+            <td>xxx</td>
+            <td>xxxx</td>
+            <td>xxxxx</td>
+        </tr> -->
     </table>
+
+</body>
+<script src="https://cdn.jsdelivr.net/gh/linways/table-to-excel@v1.0.4/dist/tableToExcel.js"></script>
 ```
 ```js
-var url = "https://covid19.th-stat.com/api/open/cases";
+var url = 'https://covid19.th-stat.com/api/open/cases';
 
 fetch(url)
     .then(res => res.json())
     .then(json => {
-        var c = json.Data;
-        console.log(c)
+        json.Data.map((c, id) => {
+            // console.log(c)
+            var tr = document.createElement("tr");
 
-        var node_ConfirmDate = document.createElement("td");
-        var textnode_ConfirmDate = document.createTextNode("xxx");
-        node_ConfirmDate.appendChild(textnode_ConfirmDate);
-        document.getElementById("table").appendChild(node_ConfirmDate);
+            var td_confirm = document.createElement("td");
+            var txtNode_confirm = document.createTextNode(c.ConfirmDate);
+            td_confirm.append(txtNode_confirm);
+            tr.append(td_confirm)
 
-        var node_No = document.createElement("td");
-        var textnode_No = document.createTextNode("xxx");
-        node_No.appendChild(textnode_No);
-        document.getElementById("table").appendChild(node_No);
+            var td_no = document.createElement("td");
+            var txtNode_no = document.createTextNode(c.No);
+            td_no.append(txtNode_no);
+            tr.append(td_no)
 
-        var node_Age = document.createElement("td");
-        var textnode_Age = document.createTextNode("xxx");
-        node_Age.appendChild(textnode_Age);
-        document.getElementById("table").appendChild(node_Age);
+            var td_Gender = document.createElement("td");
+            var txtNode_Gender = document.createTextNode(c.Gender);
+            td_Gender.append(txtNode_Gender);
+            tr.append(td_Gender)
 
-        var node_Gender = document.createElement("td");
-        var textnode_Gender = document.createTextNode("xxx");
-        node_Gender.appendChild(textnode_Gender);
-        document.getElementById("table").appendChild(node_Gender);
+            var td_dist = document.createElement("td");
+            var txtNode_dist = document.createTextNode(c.District);
+            td_dist.append(txtNode_dist);
+            tr.append(td_dist)
 
-        var node_District = document.createElement("td");
-        var textnode_District = document.createTextNode("xxx");
-        node_District.appendChild(textnode_District);
-        document.getElementById("table").appendChild(node_District);
+            var td_prov = document.createElement("td");
+            var txtNode_prov = document.createTextNode(c.Province);
+            td_prov.append(txtNode_prov);
+            tr.append(td_prov)
 
-        var node_Province = document.createElement("td");
-        var textnode_Province = document.createTextNode("xxx");
-        node_Province.appendChild(textnode_Province);
-        document.getElementById("table").appendChild(node_Province);
+            document.getElementById("covid-case").appendChild(tr);
+
+        })
+    });
+
+
+function exportXls() {
+    var tab = document.getElementsByTagName("table");
+    TableToExcel.convert(tab[0], {
+        name: "export.xlsx",
+        sheet: {
+            name: 'Sheet 1'
+        }
     })
+}
 ```
