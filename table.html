@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>HTML Table</h2>
+
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>sakda</td>
+            <td>homhuan</td>
+            <td>thai</td>
+        </tr>
+
+    </table>
+
+    <ul id="myList">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>water</li>
+
+    </ul>
+
+    <script>
+        var url = 'https://covid19.th-stat.com/api/open/cases';
+        fetch(url).then(a => a.json()).then(b => {
+            var data = b.Data
+
+            // var node = document.createElement("li");
+            // var textnode = document.createTextNode("Water");
+            // node.appendChild(textnode);
+            // document.getElementById("myList").appendChild(node);
+
+
+        })
+    </script>
+
+</body>
+
+</html>
